@@ -33,12 +33,12 @@ function jump() {
             dino.style.bottom = position + 'px';
         }
 
-    }, 20);
+    }, 15);
 }
 
 function createCactus() {
     const cactus = document.createElement('div');
-    let cactusPosition = 1600;
+    let cactusPosition = 3000;
     let randomTime = Math.random() * 5000;
     console.log(randomTime);
 
@@ -55,7 +55,7 @@ function createCactus() {
             // Game Over
 
             clearInterval(leftInterval);
-            document.body.innerHTML = '<h1 class="game-over"> Fim de Jogo</h1>';
+            document.body.innerHTML = '<div class="center"><h1 class="game-over"> Fim de Jogo</h1><br><button onclick="Refresh()">Começar novamente</button></div>';
         } else {
             cactusPosition -= 10;
             cactus.style.left = cactusPosition + 'px';
@@ -65,6 +65,9 @@ function createCactus() {
     setTimeout(createCactus, randomTime);
 }
 
+function Refresh() {
+    window.location.reload();
+}
 
 createCactus();
 document.addEventListener('keydown', handleKeyUp);
